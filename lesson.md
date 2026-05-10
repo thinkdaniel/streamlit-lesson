@@ -550,7 +550,7 @@ Streamlit Cloud is a **free** platform to deploy, manage, and share your Streaml
 
 ### **8.2 Preparing for Deployment**
 
-Streamlit Cloud uses **pip** to install dependencies, regardless of how you develop locally. You just need a `requirements.txt` file in your repository.
+Streamlit Community Cloud supports both `environment.yml` and `requirements.txt`, but `requirements.txt` is strongly recommended for deployment because the free tier has a 1GB memory limit, and conda's environment resolution often runs out of memory and fails to deploy.
 
 Because this app reads a local CSV (`./data/resale_data.csv`), that file must also be pushed to GitHub.  
 If the data file is missing from the repo, deployment succeeds but the app will fail at runtime when it tries to read the file.
