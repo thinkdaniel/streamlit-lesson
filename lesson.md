@@ -364,7 +364,7 @@ st.header("Key Metrics")
 # We can then use each column to place a metric
 col1, col2, col3, col4 = st.columns(4)
 
-# Populate each column with a metric by passing label and value
+# Each col provides a .metric() method that takes a label and a value
 col1.metric("Transactions", f"{len(filtered_df):,}")
 col2.metric("Average Price", f"${filtered_df['resale_price'].mean():,.0f}")
 col3.metric("Median Price", f"${filtered_df['resale_price'].median():,.0f}")
@@ -384,6 +384,34 @@ We will add three main visualizations to analyze trends in the filtered data her
 For complex filtering and grouping operations, it is common to prototype first in Jupyter notebooks. Notebooks are useful for step-by-step exploration, checking intermediate outputs, and testing chart ideas quickly, including interactive Plotly charts. Once the logic is stable, move it into `.py` functions and call those functions from your Streamlit app.
 
 ### **5.1 Main visuals**
+
+**Two ways to use `st.columns`:**
+
+Earlier in section 4.4, we used the **direct method** to add metrics to columns:
+
+```python
+col1, col2, col3, col4 = st.columns(4)
+col1.metric("Transactions", f"{len(filtered_df):,}")
+col2.metric("Average Price", f"${filtered_df['resale_price'].mean():,.0f}")
+```
+
+This works well when you're adding **one element per column**. However, when you need to add **multiple elements** to the same column (like a subheader, chart, and caption), using the **context manager** approach is cleaner:
+
+```python
+with col_left:
+    st.subheader("Title")
+    st.plotly_chart(fig)
+    st.caption("Note")
+```
+
+The context manager tells Streamlit "put everything in this block into this column". This allows you to use regular `st.` functions instead of repeating `col_left.` before each element.
+
+Both methods work the same way. Use the direct method for single elements, and the context manager for multiple elements.
+
+Now, in the main visuals section, we will use the context manager approach for better readability and flexibility to display:
+
+- Average Resale Price by Town (with a subheader and caption)
+- Transactions by Flat Type (with a subheader and caption)
 
 ```python
 import plotly.express as px
