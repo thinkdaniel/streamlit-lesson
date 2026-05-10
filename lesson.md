@@ -111,8 +111,6 @@ which python            # Should show a path inside your conda envs
 conda deactivate
 ```
 
-> **Why `environment.yml` first?** If you use `conda create` directly on the command line, you can't easily recover what you intended to install vs. what got pulled in as transitive dependencies. The yml file is your source of truth — only list your direct, top-level dependencies and let conda resolve the rest.
-
 ---
 
 ### **Your First App**
