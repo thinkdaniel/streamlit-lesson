@@ -27,6 +27,8 @@
 
 Streamlit is an open-source Python framework that turns data scripts into shareable web apps in minutes. **No frontend experience required** - if you can write Python, you can build web apps.
 
+> Note: in practice, you would do EDA first (covered in Lessons 1.8 and 1.9) - understanding distributions, spotting outliers, deciding on cleaning steps. A dashboard is what you build after you understand the data, to make findings explorable for others. The assumption here is that the dataset has already gone through EDA and basic cleaning, and this dataset is ready for building a dashboard on top of it.
+
 ### **Why Streamlit for Data Science?**
 
 - **Pure Python:** No HTML, CSS, or JavaScript needed
