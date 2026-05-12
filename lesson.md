@@ -66,12 +66,12 @@ channels:
   - conda-forge
   - defaults
 dependencies:
-  - python=3.11
-  - pandas
-  - pip
+  - python=3.11.9
+  - pandas=2.2.2
+  - pip=24.0
   - pip:
-      - streamlit
-      - plotly
+      - streamlit==1.36.0
+      - plotly==5.22.0
 ```
 
 Streamlit and Plotly are not readily available on conda channels, so they go under the `pip:` section. Everything else is installed via conda.
@@ -588,9 +588,9 @@ If the data file is missing from the repo, deployment succeeds but the app will 
 The simplest approach is to manually write it with only what your app uses:
 
 ```txt
-streamlit>=1.28.0
-pandas>=1.5.3
-plotly>=5.17.0
+streamlit==1.36.0
+pandas==2.2.2
+plotly==5.22.0
 ```
 
 **Why manually?**
